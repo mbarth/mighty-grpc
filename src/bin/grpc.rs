@@ -25,7 +25,7 @@
  *   cargo run --bin grpc --features binary
  */
 
-#![allow(unused_imports)] // turned to silence clippy warnings due to using feature flags
+#![allow(unused_imports)] // turned on to silence clippy warnings due to using feature flags
 use std::env;
 
 use cfg_if::cfg_if;

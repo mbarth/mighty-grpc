@@ -1,10 +1,10 @@
 # gRPC Interface to the Mighty Inference Server
 
 This Rust project implements a gRPC server for interacting with the [Mighty Inference Server](https://max.io/mighty.html). Currently, the Mighty Inference services 
-are only available through its [REST API interface](https://max.io/documentation.html), so the communication is limited to a REST client.
+are only available through its [REST API interface](https://max.io/documentation.html), so the communication is limited to a [REST client](src/services/clients/rest.rs).
 
-This library, however, provides a consistent interface which _could_ be leveraged to make direct binary calls into the library while maintaining the same gRPC 
-server interface. Presently, the `BinaryClient` implementation has not been completed as direct binary calls are not yet supported.
+This library, however, provides a [consistent interface](src/services/server_proxy/mod.rs) which _could_ be leveraged to make direct binary calls into the library while maintaining the same gRPC 
+server interface. Presently, the [`BinaryClient`](src/services/clients/binary.rs) implementation has not been completed as direct binary calls are not yet supported.
 
 ## Requirements
 - [Rust](https://www.rust-lang.org/tools/install)

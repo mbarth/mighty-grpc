@@ -21,7 +21,7 @@
  *   cargo run --bin api_and_grpc --features binary
  */
 
-#![allow(unused_imports, unused)] // turned to silence clippy warnings due to using feature flags
+#![allow(unused_imports, unused)] // turned on to silence clippy warnings due to using feature flags
 use std::env;
 
 use actix_web::{App, HttpServer, middleware, Responder, web};
