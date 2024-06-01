@@ -1,0 +1,114 @@
+syntax = "proto3";
+
+package mighty_inference_server;
+
+// The service definition for the Mighty Inference Server
+service MightyInference {
+  // Embeddings service
+  rpc Embeddings (TextRequest) returns (EmbeddingsResponse);
+
+  // Question-Answering service
+  rpc QuestionAnswering (QuestionAnswerRequest) returns (QuestionAnswerResponse);
+
+  // Sentence-Transformers service
+  rpc SentenceTransformers (TextRequest) returns (SentenceTransformersResponse);
+
+  // Sequence-Classification service
+  rpc SequenceClassification (TextRequest) returns (SequenceClassificationResponse);
+
+  // Token-Classification service
+  rpc TokenClassification (TextRequest) returns (TokenClassificationResponse);
+
+  // Metadata service
+  rpc Metadata (Empty) returns (MetadataResponse);
+
+  // HealthCheck service
+  rpc HealthCheck (Empty) returns (HealthcheckResponse);
+}
+
+// Request message containing text
+message TextRequest {
+  string text = 1;
+}
+
+// Request message containing question and context
+message QuestionAnswerRequest {
+  string question = 1;
+  string context = 2;
+}
+
+// Response message for embeddings
+message EmbeddingsResponse {
+  repeated Embedding embeddings = 1; // Nested message for embedding vectors
+  int32 took = 2;
+  string text = 3;
+  Shape shape = 4; // Nested message for shape
+}
+
+// Response message for question answering
+message QuestionAnswerResponse {
+  string answer = 1;
+  int32 took = 2;
+  string question = 3;
+  string context = 4;
+  int32 start_idx = 5;
+  int32 end_idx = 6;
+}
+
+// Response message for sentence transformers
+message SentenceTransformersResponse {
+  int32 took = 1;
+  string text = 2;
+  repeated Embedding embeddings = 3; // Nested message for embedding vectors
+  Shape shape = 4; // Nested message for shape
+}
+
+// Response message for sequence classification
+message SequenceClassificationResponse {
+  int32 took = 1;
+  string text = 2;
+  repeated float logits = 3; // 1D array of float32
+  Shape shape = 4; // Nested message for shape
+}
+
+// Response message for token classification
+message TokenClassificationResponse {
+  int32 took = 1;
+  string text = 2;
+  repeated Entity entities = 3;
+  Shape shape = 4; // Nested message for shape
+}
+
+// Entity message for token classification response
+message Entity {
+  string id = 1;
+  string label = 2;
+  string text = 3;
+  float score = 4;
+  int32 start_offset = 5;
+  int32 end_offset = 6;
+}
+
+// Response message for metadata
+message MetadataResponse {
+  map<string, string> metadata = 1;
+}
+
+// Response message for healthcheck
+message HealthcheckResponse {
+  bool success = 1;
+}
+
+// Nested message for embedding vectors
+message Embedding {
+  repeated float values = 1; // 1D array of float32 representing a single embedding vector
+}
+
+// Nested message for shape
+message Shape {
+  int32 dim1 = 1;
+  int32 dim2 = 2;
+}
+
+// Custom empty message
+message Empty {}

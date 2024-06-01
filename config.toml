@@ -1,0 +1,14 @@
+[grpc_server]
+address = "127.0.0.1"
+port = 50051
+
+[api_server]
+address = "127.0.0.1"
+port = 8080
+
+[mighty_server]
+#base_url = "http://localhost:5050"
+base_url = "http://local-mighty-cluster.com" # could start the Mighty Inference Server in cluster mode behind a reverse proxy
+
+[logging]
+level = "debug"

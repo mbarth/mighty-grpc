@@ -1,0 +1,7 @@
+/target
+/.idea
+
+src/proto/mighty_inference.bin
+client-examples/js/node_modules
+client-examples/js/mighty_inference_*
+client-examples/js/package-lock.json
