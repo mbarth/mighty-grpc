@@ -1,7 +1,10 @@
 /target
 /.idea
 
+# Ignoring binary file as it may differ based on OS
 src/proto/mighty_inference.bin
 client-examples/js/node_modules
+
+# Ignoring generated files
 client-examples/js/mighty_inference_*
-client-examples/js/package-lock.json
+client-examples/python/mighty_inference_*
