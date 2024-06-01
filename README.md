@@ -90,11 +90,11 @@ graph TD;
     B[gRPC Server] --> |REST Client| D[Mighty Inference Server]
     B[gRPC Server] -.-> |Direct Binary Calls<br>*Not Implemented*| D[Mighty Inference Server]
 
-    style A fill:#dff,stroke:#333,stroke-width:2px;
-    style C fill:#dff,stroke:#333,stroke-width:2px;
-    style E fill:#dff,stroke:#333,stroke-width:2px;
-    style B fill:#f9f,stroke:#333,stroke-width:4px;
-    style D fill:#bbf,stroke:#333,stroke-width:4px;
+    style B fill:#ffcccc,stroke:#333,stroke-width:2px,color:#000;
+    style D fill:#cce5ff,stroke:#333,stroke-width:2px,color:#000;
+    style A fill:#e6fff7,stroke:#333,stroke-width:1px,color:#000;
+    style C fill:#e6fff7,stroke:#333,stroke-width:1px,color:#000;
+    style E fill:#e6fff7,stroke:#333,stroke-width:1px,color:#000;
 ```
 
 ## License
